@@ -1,0 +1,11 @@
+---
+
+- name: selected Data from gatherings Facts
+  debug:
+    var: "{{ item }}"
+  loop:
+    - my_ip_address
+    - my_hostname
+    - my_distribution
+
+

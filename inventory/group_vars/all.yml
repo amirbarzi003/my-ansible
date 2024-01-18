@@ -1,0 +1,7 @@
+
+
+
+my_ip_address: "{{ ansible_facts['default_ipv4']['address'] }}"
+my_hostname: "{{ ansible_facts['hostname'] }}"
+my_distribution: "{{ ansible_facts['distribution'] }}"
+

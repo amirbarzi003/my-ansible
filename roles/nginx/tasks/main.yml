@@ -1,0 +1,35 @@
+---
+
+- name: install last version of nginx
+  apt:
+    name: nginx
+    state: latest
+    update_cache: yes
+
+
+- name: Add or modify try_files directive
+  lineinfile:
+    path: /etc/nginx/sites-available/default  # Update the path as needed
+    regexp: '^(\s*location \/ \{)'
+    line: |
+          location / {
+              try_files $uri $uri/ /index.html;
+          }
+
+
+
+
+- name: Copy custom template to Nginx HTML directory
+  template:
+    src: var/www/html/c_ngin_conf.j2
+    dest: /var/www/html/index.html
+  notify:
+    - reload nginx
+
+
+#handlers:
+#- name: Reload Nginx
+#  service:
+#    name: nginx
+#    state: reloaded
+

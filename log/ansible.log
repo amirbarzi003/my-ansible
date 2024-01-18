@@ -1833,3 +1833,1711 @@ The offending line appears to be:
 2024-01-18 10:55:51,362 p=2892 u=amir n=ansible | PLAY RECAP ******************************************************************************************************************************
 2024-01-18 10:55:51,363 p=2892 u=amir n=ansible | db.test.com                : ok=5    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
 2024-01-18 10:55:51,364 p=2892 u=amir n=ansible | web.test.com               : ok=5    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2024-01-18 11:34:50,421 p=3115 u=amir n=ansible | ERROR! We were unable to read either as JSON nor YAML, these are the errors we got from each:
+JSON: Expecting value: line 1 column 1 (char 0)
+
+Syntax Error while loading YAML.
+  mapping values are not allowed in this context
+
+The error appears to be in '/home/amir/my-ansible/playbooks/nginx-pb.yml': line 7, column 13, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+    role: nginx
+      - tags:
+            ^ here
+
+2024-01-18 11:36:50,345 p=3149 u=amir n=ansible | ERROR! We were unable to read either as JSON nor YAML, these are the errors we got from each:
+JSON: Expecting value: line 1 column 1 (char 0)
+
+Syntax Error while loading YAML.
+  mapping values are not allowed in this context
+
+The error appears to be in '/home/amir/my-ansible/roles/nginx/tasks/main.yml': line 6, column 12, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+    name: nginx
+      state: latest
+           ^ here
+
+2024-01-18 11:37:38,433 p=3185 u=amir n=ansible | [WARNING]: Could not match supplied host pattern, ignoring: web_servers
+
+2024-01-18 11:37:38,435 p=3185 u=amir n=ansible | PLAY [web_servers] **********************************************************************************************************************
+2024-01-18 11:37:38,436 p=3185 u=amir n=ansible | skipping: no hosts matched
+2024-01-18 11:37:38,438 p=3185 u=amir n=ansible | PLAY RECAP ******************************************************************************************************************************
+2024-01-18 11:38:30,252 p=3225 u=amir n=ansible | PLAY [web] ******************************************************************************************************************************
+2024-01-18 11:38:30,273 p=3225 u=amir n=ansible | TASK [Gathering Facts] ******************************************************************************************************************
+2024-01-18 11:38:32,785 p=3225 u=amir n=ansible | ok: [web.test.com]
+2024-01-18 11:38:32,809 p=3225 u=amir n=ansible | TASK [nginx : install last version of nginx] ********************************************************************************************
+2024-01-18 11:38:34,754 p=3225 u=amir n=ansible | ok: [web.test.com]
+2024-01-18 11:38:34,813 p=3225 u=amir n=ansible | PLAY RECAP ******************************************************************************************************************************
+2024-01-18 11:38:34,814 p=3225 u=amir n=ansible | web.test.com               : ok=2    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2024-01-18 11:39:08,652 p=3251 u=amir n=ansible | PLAY [web] ******************************************************************************************************************************
+2024-01-18 11:39:08,661 p=3251 u=amir n=ansible | TASK [Gathering Facts] ******************************************************************************************************************
+2024-01-18 11:39:10,788 p=3251 u=amir n=ansible | ok: [web.test.com]
+2024-01-18 11:39:10,846 p=3251 u=amir n=ansible | TASK [nginx : install last version of nginx] ********************************************************************************************
+2024-01-18 11:39:18,076 p=3251 u=amir n=ansible | ok: [web.test.com]
+2024-01-18 11:39:18,145 p=3251 u=amir n=ansible | PLAY RECAP ******************************************************************************************************************************
+2024-01-18 11:39:18,147 p=3251 u=amir n=ansible | web.test.com               : ok=2    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2024-01-18 11:44:39,474 p=3330 u=amir n=ansible | PLAY [all] ***********************************************************************************************************
+2024-01-18 11:44:39,491 p=3330 u=amir n=ansible | TASK [Gathering Facts] ***********************************************************************************************
+2024-01-18 11:44:43,468 p=3330 u=amir n=ansible | ok: [web.test.com]
+2024-01-18 11:44:43,490 p=3330 u=amir n=ansible | TASK [common : update & upgrade pkg] *********************************************************************************
+2024-01-18 11:44:52,050 p=3330 u=amir n=ansible | ok: [web.test.com]
+2024-01-18 11:44:52,059 p=3330 u=amir n=ansible | TASK [common : install apps] *****************************************************************************************
+2024-01-18 11:44:53,852 p=3330 u=amir n=ansible | ok: [web.test.com] => (item=plocate)
+2024-01-18 11:44:53,884 p=3330 u=amir n=ansible | TASK [common : Tasks done] *******************************************************************************************
+2024-01-18 11:44:53,912 p=3330 u=amir n=ansible | ok: [web.test.com] => {
+    "msg": [
+        "Task done (*_*)"
+    ]
+}
+2024-01-18 11:44:53,927 p=3330 u=amir n=ansible | TASK [common : copy a certificate] ***********************************************************************************
+2024-01-18 11:44:55,524 p=3330 u=amir n=ansible | ok: [web.test.com]
+2024-01-18 11:44:55,541 p=3330 u=amir n=ansible | TASK [common : use variable] *****************************************************************************************
+2024-01-18 11:44:55,584 p=3330 u=amir n=ansible | ok: [web.test.com] => (item=192.168.0.170) => {
+    "msg": "192.168.0.170"
+}
+2024-01-18 11:44:55,589 p=3330 u=amir n=ansible | ok: [web.test.com] => (item=ubu2) => {
+    "msg": "ubu2"
+}
+2024-01-18 11:44:55,594 p=3330 u=amir n=ansible | ok: [web.test.com] => (item=Ubuntu) => {
+    "msg": "Ubuntu"
+}
+2024-01-18 11:44:55,657 p=3330 u=amir n=ansible | PLAY RECAP ***********************************************************************************************************
+2024-01-18 11:44:55,658 p=3330 u=amir n=ansible | web.test.com               : ok=6    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2024-01-18 11:52:26,041 p=3383 u=amir n=ansible | PLAY [all] ***********************************************************************************************************
+2024-01-18 11:52:26,052 p=3383 u=amir n=ansible | TASK [Gathering Facts] ***********************************************************************************************
+2024-01-18 11:52:28,723 p=3383 u=amir n=ansible | ok: [db.test.com]
+2024-01-18 11:52:28,936 p=3383 u=amir n=ansible | ok: [web.test.com]
+2024-01-18 11:52:28,992 p=3383 u=amir n=ansible | TASK [common : update & upgrade pkg] *********************************************************************************
+2024-01-18 11:52:34,101 p=3383 u=amir n=ansible | ok: [db.test.com]
+2024-01-18 11:52:37,208 p=3383 u=amir n=ansible | ok: [web.test.com]
+2024-01-18 11:52:37,217 p=3383 u=amir n=ansible | TASK [common : install apps] *****************************************************************************************
+2024-01-18 11:52:39,073 p=3383 u=amir n=ansible | ok: [web.test.com] => (item=plocate)
+2024-01-18 11:52:46,259 p=3383 u=amir n=ansible | changed: [db.test.com] => (item=plocate)
+2024-01-18 11:52:46,280 p=3383 u=amir n=ansible | TASK [common : Tasks done] *******************************************************************************************
+2024-01-18 11:52:46,328 p=3383 u=amir n=ansible | ok: [web.test.com] => {
+    "msg": [
+        "Task done (*_*)"
+    ]
+}
+2024-01-18 11:52:46,354 p=3383 u=amir n=ansible | ok: [db.test.com] => {
+    "msg": [
+        "Task done (*_*)"
+    ]
+}
+2024-01-18 11:52:46,376 p=3383 u=amir n=ansible | TASK [common : copy a certificate] ***********************************************************************************
+2024-01-18 11:52:48,311 p=3383 u=amir n=ansible | ok: [db.test.com]
+2024-01-18 11:52:48,337 p=3383 u=amir n=ansible | ok: [web.test.com]
+2024-01-18 11:52:48,358 p=3383 u=amir n=ansible | TASK [common : use variable] *****************************************************************************************
+2024-01-18 11:52:48,484 p=3383 u=amir n=ansible | ok: [web.test.com] => (item=192.168.0.170) => {
+    "msg": "192.168.0.170"
+}
+2024-01-18 11:52:48,506 p=3383 u=amir n=ansible | ok: [web.test.com] => (item=ubu2) => {
+    "msg": "ubu2"
+}
+2024-01-18 11:52:48,520 p=3383 u=amir n=ansible | ok: [web.test.com] => (item=Ubuntu) => {
+    "msg": "Ubuntu"
+}
+2024-01-18 11:52:48,549 p=3383 u=amir n=ansible | ok: [db.test.com] => (item=192.168.0.127) => {
+    "msg": "192.168.0.127"
+}
+2024-01-18 11:52:48,560 p=3383 u=amir n=ansible | ok: [db.test.com] => (item=Deb1) => {
+    "msg": "Deb1"
+}
+2024-01-18 11:52:48,572 p=3383 u=amir n=ansible | ok: [db.test.com] => (item=Debian) => {
+    "msg": "Debian"
+}
+2024-01-18 11:52:48,664 p=3383 u=amir n=ansible | PLAY RECAP ***********************************************************************************************************
+2024-01-18 11:52:48,665 p=3383 u=amir n=ansible | db.test.com                : ok=6    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2024-01-18 11:52:48,666 p=3383 u=amir n=ansible | web.test.com               : ok=6    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2024-01-18 13:07:55,460 p=3811 u=amir n=ansible | ERROR! We were unable to read either as JSON nor YAML, these are the errors we got from each:
+JSON: Expecting value: line 1 column 1 (char 0)
+
+Syntax Error while loading YAML.
+  mapping values are not allowed in this context
+
+The error appears to be in '/home/amir/my-ansible/roles/nginx/tasks/main.yml': line 11, column 15, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+- name: Add or modify try_files directive
+    lineinfile:
+              ^ here
+
+2024-01-18 13:08:56,692 p=3847 u=amir n=ansible | PLAY [web] *******************************************************************************************************************************************
+2024-01-18 13:08:56,702 p=3847 u=amir n=ansible | TASK [Gathering Facts] *******************************************************************************************************************************
+2024-01-18 13:08:59,352 p=3847 u=amir n=ansible | ok: [web.test.com]
+2024-01-18 13:08:59,391 p=3847 u=amir n=ansible | TASK [nginx : install last version of nginx] *********************************************************************************************************
+2024-01-18 13:09:01,352 p=3847 u=amir n=ansible | ok: [web.test.com]
+2024-01-18 13:09:01,363 p=3847 u=amir n=ansible | TASK [nginx : Add or modify try_files directive] *****************************************************************************************************
+2024-01-18 13:09:02,156 p=3847 u=amir n=ansible | changed: [web.test.com]
+2024-01-18 13:09:02,180 p=3847 u=amir n=ansible | TASK [nginx : Copy custom template to Nginx HTML directory] ******************************************************************************************
+2024-01-18 13:09:02,301 p=3847 u=amir n=ansible | An exception occurred during task execution. To see the full traceback, use -vvv. The error was: If you are using a module and expect the file to exist on the remote, see the remote_src option
+2024-01-18 13:09:02,303 p=3847 u=amir n=ansible | fatal: [web.test.com]: FAILED! => {"changed": false, "msg": "Could not find or access 'c_ngin_conf.j2'\nSearched in:\n\t/home/amir/my-ansible/roles/nginx/templates/c_ngin_conf.j2\n\t/home/amir/my-ansible/roles/nginx/c_ngin_conf.j2\n\t/home/amir/my-ansible/roles/nginx/tasks/templates/c_ngin_conf.j2\n\t/home/amir/my-ansible/roles/nginx/tasks/c_ngin_conf.j2\n\t/home/amir/my-ansible/playbooks/templates/c_ngin_conf.j2\n\t/home/amir/my-ansible/playbooks/c_ngin_conf.j2 on the Ansible Controller.\nIf you are using a module and expect the file to exist on the remote, see the remote_src option"}
+2024-01-18 13:09:02,308 p=3847 u=amir n=ansible | PLAY RECAP *******************************************************************************************************************************************
+2024-01-18 13:09:02,309 p=3847 u=amir n=ansible | web.test.com               : ok=3    changed=1    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2024-01-18 13:18:52,309 p=3939 u=amir n=ansible | PLAY [web] *******************************************************************************************************************************************
+2024-01-18 13:18:52,318 p=3939 u=amir n=ansible | TASK [Gathering Facts] *******************************************************************************************************************************
+2024-01-18 13:18:54,874 p=3939 u=amir n=ansible | ok: [web.test.com]
+2024-01-18 13:18:54,901 p=3939 u=amir n=ansible | TASK [nginx : install last version of nginx] *********************************************************************************************************
+2024-01-18 13:18:56,866 p=3939 u=amir n=ansible | ok: [web.test.com]
+2024-01-18 13:18:56,879 p=3939 u=amir n=ansible | TASK [nginx : Add or modify try_files directive] *****************************************************************************************************
+2024-01-18 13:18:57,656 p=3939 u=amir n=ansible | changed: [web.test.com]
+2024-01-18 13:18:57,676 p=3939 u=amir n=ansible | TASK [nginx : Copy custom template to Nginx HTML directory] ******************************************************************************************
+2024-01-18 13:18:57,797 p=3939 u=amir n=ansible | An exception occurred during task execution. To see the full traceback, use -vvv. The error was: If you are using a module and expect the file to exist on the remote, see the remote_src option
+2024-01-18 13:18:57,798 p=3939 u=amir n=ansible | fatal: [web.test.com]: FAILED! => {"changed": false, "msg": "Could not find or access 'c_ngin_conf.j2'\nSearched in:\n\t/home/amir/my-ansible/roles/nginx/templates/c_ngin_conf.j2\n\t/home/amir/my-ansible/roles/nginx/c_ngin_conf.j2\n\t/home/amir/my-ansible/roles/nginx/tasks/templates/c_ngin_conf.j2\n\t/home/amir/my-ansible/roles/nginx/tasks/c_ngin_conf.j2\n\t/home/amir/my-ansible/playbooks/templates/c_ngin_conf.j2\n\t/home/amir/my-ansible/playbooks/c_ngin_conf.j2 on the Ansible Controller.\nIf you are using a module and expect the file to exist on the remote, see the remote_src option"}
+2024-01-18 13:18:57,804 p=3939 u=amir n=ansible | PLAY RECAP *******************************************************************************************************************************************
+2024-01-18 13:18:57,805 p=3939 u=amir n=ansible | web.test.com               : ok=3    changed=1    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2024-01-18 13:27:39,466 p=3985 u=amir n=ansible | PLAY [web] *******************************************************************************************************************************************
+2024-01-18 13:27:39,485 p=3985 u=amir n=ansible | TASK [Gathering Facts] *******************************************************************************************************************************
+2024-01-18 13:27:42,096 p=3985 u=amir n=ansible | ok: [web.test.com]
+2024-01-18 13:27:42,129 p=3985 u=amir n=ansible | TASK [nginx : install last version of nginx] *********************************************************************************************************
+2024-01-18 13:27:44,077 p=3985 u=amir n=ansible | ok: [web.test.com]
+2024-01-18 13:27:44,087 p=3985 u=amir n=ansible | TASK [nginx : Add or modify try_files directive] *****************************************************************************************************
+2024-01-18 13:27:45,005 p=3985 u=amir n=ansible | changed: [web.test.com]
+2024-01-18 13:27:45,028 p=3985 u=amir n=ansible | TASK [nginx : Copy custom template to Nginx HTML directory] ******************************************************************************************
+2024-01-18 13:27:45,166 p=3985 u=amir n=ansible | An exception occurred during task execution. To see the full traceback, use -vvv. The error was: If you are using a module and expect the file to exist on the remote, see the remote_src option
+2024-01-18 13:27:45,170 p=3985 u=amir n=ansible | fatal: [web.test.com]: FAILED! => {"changed": false, "msg": "Could not find or access 'c_ngin_conf.j2'\nSearched in:\n\t/home/amir/my-ansible/roles/nginx/templates/c_ngin_conf.j2\n\t/home/amir/my-ansible/roles/nginx/c_ngin_conf.j2\n\t/home/amir/my-ansible/roles/nginx/tasks/templates/c_ngin_conf.j2\n\t/home/amir/my-ansible/roles/nginx/tasks/c_ngin_conf.j2\n\t/home/amir/my-ansible/playbooks/templates/c_ngin_conf.j2\n\t/home/amir/my-ansible/playbooks/c_ngin_conf.j2 on the Ansible Controller.\nIf you are using a module and expect the file to exist on the remote, see the remote_src option"}
+2024-01-18 13:27:45,177 p=3985 u=amir n=ansible | PLAY RECAP *******************************************************************************************************************************************
+2024-01-18 13:27:45,178 p=3985 u=amir n=ansible | web.test.com               : ok=3    changed=1    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2024-01-18 13:31:19,973 p=4032 u=amir n=ansible | PLAY [web] *******************************************************************************************************************************************
+2024-01-18 13:31:19,992 p=4032 u=amir n=ansible | TASK [Gathering Facts] *******************************************************************************************************************************
+2024-01-18 13:31:22,502 p=4032 u=amir n=ansible | ok: [web.test.com]
+2024-01-18 13:31:22,528 p=4032 u=amir n=ansible | TASK [nginx : install last version of nginx] *********************************************************************************************************
+2024-01-18 13:31:24,576 p=4032 u=amir n=ansible | ok: [web.test.com]
+2024-01-18 13:31:24,584 p=4032 u=amir n=ansible | TASK [nginx : Add or modify try_files directive] *****************************************************************************************************
+2024-01-18 13:31:25,453 p=4032 u=amir n=ansible | changed: [web.test.com]
+2024-01-18 13:31:25,472 p=4032 u=amir n=ansible | TASK [nginx : Copy custom template to Nginx HTML directory] ******************************************************************************************
+2024-01-18 13:31:26,364 p=4032 u=amir n=ansible | ERROR! The requested handler 'Reload Nginx' was not found in either the main handlers list nor in the listening handlers list
+2024-01-18 13:35:53,067 p=4113 u=amir n=ansible | PLAY [web] *******************************************************************************************************************************************
+2024-01-18 13:35:53,083 p=4113 u=amir n=ansible | TASK [Gathering Facts] *******************************************************************************************************************************
+2024-01-18 13:35:55,738 p=4113 u=amir n=ansible | ok: [web.test.com]
+2024-01-18 13:35:55,779 p=4113 u=amir n=ansible | TASK [nginx : install last version of nginx] *********************************************************************************************************
+2024-01-18 13:35:57,770 p=4113 u=amir n=ansible | ok: [web.test.com]
+2024-01-18 13:35:57,782 p=4113 u=amir n=ansible | TASK [nginx : Add or modify try_files directive] *****************************************************************************************************
+2024-01-18 13:35:58,743 p=4113 u=amir n=ansible | changed: [web.test.com]
+2024-01-18 13:35:58,759 p=4113 u=amir n=ansible | TASK [nginx : Copy custom template to Nginx HTML directory] ******************************************************************************************
+2024-01-18 13:35:59,587 p=4113 u=amir n=ansible | ERROR! The requested handler 'reload Nginx' was not found in either the main handlers list nor in the listening handlers list
+2024-01-18 13:37:14,674 p=4159 u=amir n=ansible | PLAY [web] *******************************************************************************************************************************************
+2024-01-18 13:37:14,689 p=4159 u=amir n=ansible | TASK [Gathering Facts] *******************************************************************************************************************************
+2024-01-18 13:37:17,136 p=4159 u=amir n=ansible | ok: [web.test.com]
+2024-01-18 13:37:17,157 p=4159 u=amir n=ansible | TASK [nginx : install last version of nginx] *********************************************************************************************************
+2024-01-18 13:37:18,954 p=4159 u=amir n=ansible | ok: [web.test.com]
+2024-01-18 13:37:18,973 p=4159 u=amir n=ansible | TASK [nginx : Add or modify try_files directive] *****************************************************************************************************
+2024-01-18 13:37:19,730 p=4159 u=amir n=ansible | changed: [web.test.com]
+2024-01-18 13:37:19,740 p=4159 u=amir n=ansible | TASK [nginx : Copy custom template to Nginx HTML directory] ******************************************************************************************
+2024-01-18 13:37:20,564 p=4159 u=amir n=ansible | changed: [web.test.com]
+2024-01-18 13:37:20,620 p=4159 u=amir n=ansible | RUNNING HANDLER [nginx : reload nginx] ***************************************************************************************************************
+2024-01-18 13:37:21,682 p=4159 u=amir n=ansible | changed: [web.test.com]
+2024-01-18 13:37:21,704 p=4159 u=amir n=ansible | PLAY RECAP *******************************************************************************************************************************************
+2024-01-18 13:37:21,705 p=4159 u=amir n=ansible | web.test.com               : ok=5    changed=3    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2024-01-18 13:37:46,597 p=4212 u=amir n=ansible | PLAY [web] *******************************************************************************************************************************************
+2024-01-18 13:37:46,617 p=4212 u=amir n=ansible | TASK [Gathering Facts] *******************************************************************************************************************************
+2024-01-18 13:37:48,616 p=4212 u=amir n=ansible | ok: [web.test.com]
+2024-01-18 13:37:48,679 p=4212 u=amir n=ansible | TASK [nginx : install last version of nginx] *********************************************************************************************************
+2024-01-18 13:37:50,864 p=4212 u=amir n=ansible | ok: [web.test.com]
+2024-01-18 13:37:50,876 p=4212 u=amir n=ansible | TASK [nginx : Add or modify try_files directive] *****************************************************************************************************
+2024-01-18 13:37:51,684 p=4212 u=amir n=ansible | [0;31m--- before: /etc/nginx/sites-available/default (content)[0m
+[0;31m[0m[0;32m+++ after: /etc/nginx/sites-available/default (content)[0m
+[0;32m[0m[0;36m@@ -45,7 +45,9 @@[0m
+[0;36m[0m 
+ 	server_name _;
+ 
+[0;31m-	location / {[0m
+[0;31m[0m[0;32m+location / {[0m
+[0;32m[0m[0;32m+    try_files $uri $uri/ /index.html;[0m
+[0;32m[0m[0;32m+}[0m
+[0;32m[0m 		# First attempt to serve request as file, then
+ 		# as directory, then fall back to displaying a 404.
+ 		try_files $uri $uri/ =404;
+
+
+2024-01-18 13:37:51,685 p=4212 u=amir n=ansible | changed: [web.test.com]
+2024-01-18 13:37:51,707 p=4212 u=amir n=ansible | TASK [nginx : Copy custom template to Nginx HTML directory] ******************************************************************************************
+2024-01-18 13:37:53,262 p=4212 u=amir n=ansible | [0;31m--- before[0m
+[0;31m[0m[0;32m+++ after: /home/amir/.ansible/tmp/ansible-local-4212pxbzrnob/tmp5ulfcb9n/c_ngin_conf.j2[0m
+[0;32m[0m[0;36m@@ -0,0 +1,21 @@[0m
+[0;36m[0m[0;32m+[0m
+[0;32m[0m[0;32m+<!DOCTYPE html>[0m
+[0;32m[0m[0;32m+<html>[0m
+[0;32m[0m[0;32m+<head>[0m
+[0;32m[0m[0;32m+<title>Welcome to nginx!</title>[0m
+[0;32m[0m[0;32m+<style>[0m
+[0;32m[0m[0;32m+    body {[0m
+[0;32m[0m[0;32m+        width: 35em;[0m
+[0;32m[0m[0;32m+        margin: 0 auto;[0m
+[0;32m[0m[0;32m+        font-family: Tahoma, Verdana, Arial, sans-serif;[0m
+[0;32m[0m[0;32m+    }[0m
+[0;32m[0m[0;32m+</style>[0m
+[0;32m[0m[0;32m+</head>[0m
+[0;32m[0m[0;32m+<body>[0m
+[0;32m[0m[0;32m+<h1>Welcome to Amirrrrr's nginx!</h1>[0m
+[0;32m[0m[0;32m+<p>That is my custome config files.</p>[0m
+[0;32m[0m[0;32m+[0m
+[0;32m[0m[0;32m+[0m
+[0;32m[0m[0;32m+<p><em>This is amir's trainings Template</em></p>[0m
+[0;32m[0m[0;32m+</body>[0m
+[0;32m[0m[0;32m+</html>[0m
+[0;32m[0m
+
+2024-01-18 13:37:53,264 p=4212 u=amir n=ansible | changed: [web.test.com]
+2024-01-18 13:37:53,324 p=4212 u=amir n=ansible | RUNNING HANDLER [nginx : reload nginx] ***************************************************************************************************************
+2024-01-18 13:37:54,628 p=4212 u=amir n=ansible | changed: [web.test.com]
+2024-01-18 13:37:54,652 p=4212 u=amir n=ansible | PLAY RECAP *******************************************************************************************************************************************
+2024-01-18 13:37:54,653 p=4212 u=amir n=ansible | web.test.com               : ok=5    changed=3    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2024-01-18 13:39:03,493 p=4264 u=amir n=ansible | PLAY [web] *******************************************************************************************************************************************
+2024-01-18 13:39:03,512 p=4264 u=amir n=ansible | TASK [Gathering Facts] *******************************************************************************************************************************
+2024-01-18 13:39:06,173 p=4264 u=amir n=ansible | ok: [web.test.com]
+2024-01-18 13:39:06,212 p=4264 u=amir n=ansible | TASK [nginx : install last version of nginx] *********************************************************************************************************
+2024-01-18 13:39:09,901 p=4264 u=amir n=ansible | ok: [web.test.com]
+2024-01-18 13:39:09,912 p=4264 u=amir n=ansible | TASK [nginx : Add or modify try_files directive] *****************************************************************************************************
+2024-01-18 13:39:10,495 p=4264 u=amir n=ansible | changed: [web.test.com]
+2024-01-18 13:39:10,508 p=4264 u=amir n=ansible | TASK [nginx : Copy custom template to Nginx HTML directory] ******************************************************************************************
+2024-01-18 13:39:11,984 p=4264 u=amir n=ansible | changed: [web.test.com]
+2024-01-18 13:39:12,034 p=4264 u=amir n=ansible | RUNNING HANDLER [nginx : reload nginx] ***************************************************************************************************************
+2024-01-18 13:39:13,883 p=4264 u=amir n=ansible | fatal: [web.test.com]: FAILED! => {"changed": false, "msg": "Unable to reload service nginx: Job for nginx.service failed.\nSee \"systemctl status nginx.service\" and \"journalctl -xeu nginx.service\" for details.\n"}
+2024-01-18 13:39:13,885 p=4264 u=amir n=ansible | PLAY RECAP *******************************************************************************************************************************************
+2024-01-18 13:39:13,886 p=4264 u=amir n=ansible | web.test.com               : ok=4    changed=2    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2024-01-18 13:39:28,904 p=4321 u=amir n=ansible | PLAY [web] *******************************************************************************************************************************************
+2024-01-18 13:39:28,914 p=4321 u=amir n=ansible | TASK [Gathering Facts] *******************************************************************************************************************************
+2024-01-18 13:39:30,973 p=4321 u=amir n=ansible | ok: [web.test.com]
+2024-01-18 13:39:31,027 p=4321 u=amir n=ansible | TASK [nginx : install last version of nginx] *********************************************************************************************************
+2024-01-18 13:39:35,003 p=4321 u=amir n=ansible | ok: [web.test.com]
+2024-01-18 13:39:35,017 p=4321 u=amir n=ansible | TASK [nginx : Add or modify try_files directive] *****************************************************************************************************
+2024-01-18 13:39:35,883 p=4321 u=amir n=ansible | changed: [web.test.com]
+2024-01-18 13:39:35,901 p=4321 u=amir n=ansible | TASK [nginx : Copy custom template to Nginx HTML directory] ******************************************************************************************
+2024-01-18 13:39:37,500 p=4321 u=amir n=ansible | ok: [web.test.com]
+2024-01-18 13:39:37,554 p=4321 u=amir n=ansible | PLAY RECAP *******************************************************************************************************************************************
+2024-01-18 13:39:37,555 p=4321 u=amir n=ansible | web.test.com               : ok=4    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2024-01-18 13:39:45,307 p=4364 u=amir n=ansible | PLAY [web] *******************************************************************************************************************************************
+2024-01-18 13:39:45,326 p=4364 u=amir n=ansible | TASK [Gathering Facts] *******************************************************************************************************************************
+2024-01-18 13:39:47,477 p=4364 u=amir n=ansible | ok: [web.test.com]
+2024-01-18 13:39:47,505 p=4364 u=amir n=ansible | TASK [nginx : install last version of nginx] *********************************************************************************************************
+2024-01-18 13:39:51,444 p=4364 u=amir n=ansible | ok: [web.test.com]
+2024-01-18 13:39:51,454 p=4364 u=amir n=ansible | TASK [nginx : Add or modify try_files directive] *****************************************************************************************************
+2024-01-18 13:39:52,288 p=4364 u=amir n=ansible | changed: [web.test.com]
+2024-01-18 13:39:52,301 p=4364 u=amir n=ansible | TASK [nginx : Copy custom template to Nginx HTML directory] ******************************************************************************************
+2024-01-18 13:39:53,737 p=4364 u=amir n=ansible | ok: [web.test.com]
+2024-01-18 13:39:53,800 p=4364 u=amir n=ansible | PLAY RECAP *******************************************************************************************************************************************
+2024-01-18 13:39:53,801 p=4364 u=amir n=ansible | web.test.com               : ok=4    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2024-01-18 13:40:52,464 p=4410 u=amir n=ansible | PLAY [web] *******************************************************************************************************************************************
+2024-01-18 13:40:52,477 p=4410 u=amir n=ansible | TASK [Gathering Facts] *******************************************************************************************************************************
+2024-01-18 13:40:54,469 p=4410 u=amir n=ansible | ok: [web.test.com]
+2024-01-18 13:40:54,533 p=4410 u=amir n=ansible | TASK [nginx : install last version of nginx] *********************************************************************************************************
+2024-01-18 13:40:58,555 p=4410 u=amir n=ansible | ok: [web.test.com]
+2024-01-18 13:40:58,573 p=4410 u=amir n=ansible | TASK [nginx : Add or modify try_files directive] *****************************************************************************************************
+2024-01-18 13:40:59,466 p=4410 u=amir n=ansible | changed: [web.test.com]
+2024-01-18 13:40:59,484 p=4410 u=amir n=ansible | TASK [nginx : Copy custom template to Nginx HTML directory] ******************************************************************************************
+2024-01-18 13:41:01,025 p=4410 u=amir n=ansible | ok: [web.test.com]
+2024-01-18 13:41:01,097 p=4410 u=amir n=ansible | PLAY RECAP *******************************************************************************************************************************************
+2024-01-18 13:41:01,098 p=4410 u=amir n=ansible | web.test.com               : ok=4    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2024-01-18 13:47:48,057 p=4480 u=amir n=ansible | PLAY [web] *******************************************************************************************************************************************
+2024-01-18 13:47:48,066 p=4480 u=amir n=ansible | TASK [Gathering Facts] *******************************************************************************************************************************
+2024-01-18 13:47:50,472 p=4480 u=amir n=ansible | ok: [web.test.com]
+2024-01-18 13:47:50,492 p=4480 u=amir n=ansible | TASK [nginx : install last version of nginx] *********************************************************************************************************
+2024-01-18 13:47:54,696 p=4480 u=amir n=ansible | ok: [web.test.com]
+2024-01-18 13:47:54,706 p=4480 u=amir n=ansible | TASK [nginx : Add or modify try_files directive] *****************************************************************************************************
+2024-01-18 13:47:55,472 p=4480 u=amir n=ansible | changed: [web.test.com]
+2024-01-18 13:47:55,499 p=4480 u=amir n=ansible | TASK [nginx : Copy custom template to Nginx HTML directory] ******************************************************************************************
+2024-01-18 13:47:57,108 p=4480 u=amir n=ansible | changed: [web.test.com]
+2024-01-18 13:47:57,135 p=4480 u=amir n=ansible | RUNNING HANDLER [nginx : reload nginx] ***************************************************************************************************************
+2024-01-18 13:47:58,852 p=4480 u=amir n=ansible | fatal: [web.test.com]: FAILED! => {"changed": false, "msg": "Unable to reload service nginx: Job for nginx.service failed.\nSee \"systemctl status nginx.service\" and \"journalctl -xeu nginx.service\" for details.\n"}
+2024-01-18 13:47:58,856 p=4480 u=amir n=ansible | PLAY RECAP *******************************************************************************************************************************************
+2024-01-18 13:47:58,856 p=4480 u=amir n=ansible | web.test.com               : ok=4    changed=2    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2024-01-18 13:48:04,705 p=4537 u=amir n=ansible | PLAY [web] *******************************************************************************************************************************************
+2024-01-18 13:48:04,720 p=4537 u=amir n=ansible | TASK [Gathering Facts] *******************************************************************************************************************************
+2024-01-18 13:48:06,881 p=4537 u=amir n=ansible | ok: [web.test.com]
+2024-01-18 13:48:06,925 p=4537 u=amir n=ansible | TASK [nginx : install last version of nginx] *********************************************************************************************************
+2024-01-18 13:48:10,758 p=4537 u=amir n=ansible | ok: [web.test.com]
+2024-01-18 13:48:10,771 p=4537 u=amir n=ansible | TASK [nginx : Add or modify try_files directive] *****************************************************************************************************
+2024-01-18 13:48:11,597 p=4537 u=amir n=ansible | changed: [web.test.com]
+2024-01-18 13:48:11,609 p=4537 u=amir n=ansible | TASK [nginx : Copy custom template to Nginx HTML directory] ******************************************************************************************
+2024-01-18 13:48:12,964 p=4537 u=amir n=ansible | ok: [web.test.com]
+2024-01-18 13:48:13,033 p=4537 u=amir n=ansible | PLAY RECAP *******************************************************************************************************************************************
+2024-01-18 13:48:13,036 p=4537 u=amir n=ansible | web.test.com               : ok=4    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2024-01-18 15:13:50,975 p=4662 u=amir n=ansible | web.test.com | SUCCESS => {
+    "ansible_facts": {
+        "ansible_all_ipv4_addresses": [
+            "192.168.0.170"
+        ],
+        "ansible_all_ipv6_addresses": [
+            "2a02:8109:a802:2a00:242f:4b8:3b73:ff48",
+            "2a02:8109:a802:2a00:cfc7:98ac:2eb6:50eb",
+            "fe80::f985:ba66:78df:b039",
+            "2a02:8109:a802:2a00:ca46:295a:b8df:f5d2"
+        ],
+        "ansible_apparmor": {
+            "status": "enabled"
+        },
+        "ansible_architecture": "x86_64",
+        "ansible_bios_date": "12/01/2006",
+        "ansible_bios_vendor": "innotek GmbH",
+        "ansible_bios_version": "VirtualBox",
+        "ansible_board_asset_tag": "NA",
+        "ansible_board_name": "VirtualBox",
+        "ansible_board_serial": "0",
+        "ansible_board_vendor": "Oracle Corporation",
+        "ansible_board_version": "1.2",
+        "ansible_chassis_asset_tag": "NA",
+        "ansible_chassis_serial": "NA",
+        "ansible_chassis_vendor": "Oracle Corporation",
+        "ansible_chassis_version": "NA",
+        "ansible_cmdline": {
+            "BOOT_IMAGE": "/boot/vmlinuz-6.5.0-14-generic",
+            "quiet": true,
+            "ro": true,
+            "root": "UUID=4738c422-f145-4864-a00b-5643b2cf1d56",
+            "splash": true
+        },
+        "ansible_date_time": {
+            "date": "2024-01-18",
+            "day": "18",
+            "epoch": "1705587230",
+            "epoch_int": "1705587230",
+            "hour": "15",
+            "iso8601": "2024-01-18T14:13:50Z",
+            "iso8601_basic": "20240118T151350279835",
+            "iso8601_basic_short": "20240118T151350",
+            "iso8601_micro": "2024-01-18T14:13:50.279835Z",
+            "minute": "13",
+            "month": "01",
+            "second": "50",
+            "time": "15:13:50",
+            "tz": "CET",
+            "tz_dst": "CEST",
+            "tz_offset": "+0100",
+            "weekday": "Donnerstag",
+            "weekday_number": "4",
+            "weeknumber": "03",
+            "year": "2024"
+        },
+        "ansible_default_ipv4": {
+            "address": "192.168.0.170",
+            "alias": "enp0s3",
+            "broadcast": "192.168.0.255",
+            "gateway": "192.168.0.1",
+            "interface": "enp0s3",
+            "macaddress": "08:00:27:29:db:1f",
+            "mtu": 1500,
+            "netmask": "255.255.255.0",
+            "network": "192.168.0.0",
+            "prefix": "24",
+            "type": "ether"
+        },
+        "ansible_default_ipv6": {
+            "address": "2a02:8109:a802:2a00:ca46:295a:b8df:f5d2",
+            "gateway": "fe80::2cb:7aff:fef6:f5e8",
+            "interface": "enp0s3",
+            "macaddress": "08:00:27:29:db:1f",
+            "mtu": 1500,
+            "prefix": "64",
+            "scope": "global",
+            "type": "ether"
+        },
+        "ansible_device_links": {
+            "ids": {
+                "sda": [
+                    "ata-VBOX_HARDDISK_VB15afa92f-b6804972"
+                ],
+                "sda1": [
+                    "ata-VBOX_HARDDISK_VB15afa92f-b6804972-part1"
+                ],
+                "sda2": [
+                    "ata-VBOX_HARDDISK_VB15afa92f-b6804972-part2"
+                ],
+                "sda3": [
+                    "ata-VBOX_HARDDISK_VB15afa92f-b6804972-part3"
+                ],
+                "sr0": [
+                    "ata-VBOX_CD-ROM_VB2-01700376"
+                ]
+            },
+            "labels": {},
+            "masters": {},
+            "uuids": {
+                "sda2": [
+                    "F332-7A97"
+                ],
+                "sda3": [
+                    "4738c422-f145-4864-a00b-5643b2cf1d56"
+                ]
+            }
+        },
+        "ansible_devices": {
+            "loop0": {
+                "holders": [],
+                "host": "",
+                "links": {
+                    "ids": [],
+                    "labels": [],
+                    "masters": [],
+                    "uuids": []
+                },
+                "model": null,
+                "partitions": {},
+                "removable": "0",
+                "rotational": "1",
+                "sas_address": null,
+                "sas_device_handle": null,
+                "scheduler_mode": "none",
+                "sectors": "129944",
+                "sectorsize": "512",
+                "size": "63.45 MB",
+                "support_discard": "4096",
+                "vendor": null,
+                "virtual": 1
+            },
+            "loop1": {
+                "holders": [],
+                "host": "",
+                "links": {
+                    "ids": [],
+                    "labels": [],
+                    "masters": [],
+                    "uuids": []
+                },
+                "model": null,
+                "partitions": {},
+                "removable": "0",
+                "rotational": "1",
+                "sas_address": null,
+                "sas_device_handle": null,
+                "scheduler_mode": "none",
+                "sectors": "8",
+                "sectorsize": "512",
+                "size": "4.00 KB",
+                "support_discard": "4096",
+                "vendor": null,
+                "virtual": 1
+            },
+            "loop10": {
+                "holders": [],
+                "host": "",
+                "links": {
+                    "ids": [],
+                    "labels": [],
+                    "masters": [],
+                    "uuids": []
+                },
+                "model": null,
+                "partitions": {},
+                "removable": "0",
+                "rotational": "1",
+                "sas_address": null,
+                "sas_device_handle": null,
+                "scheduler_mode": "none",
+                "sectors": "25240",
+                "sectorsize": "512",
+                "size": "12.32 MB",
+                "support_discard": "4096",
+                "vendor": null,
+                "virtual": 1
+            },
+            "loop11": {
+                "holders": [],
+                "host": "",
+                "links": {
+                    "ids": [],
+                    "labels": [],
+                    "masters": [],
+                    "uuids": []
+                },
+                "model": null,
+                "partitions": {},
+                "removable": "0",
+                "rotational": "1",
+                "sas_address": null,
+                "sas_device_handle": null,
+                "scheduler_mode": "none",
+                "sectors": "82800",
+                "sectorsize": "512",
+                "size": "40.43 MB",
+                "support_discard": "4096",
+                "vendor": null,
+                "virtual": 1
+            },
+            "loop12": {
+                "holders": [],
+                "host": "",
+                "links": {
+                    "ids": [],
+                    "labels": [],
+                    "masters": [],
+                    "uuids": []
+                },
+                "model": null,
+                "partitions": {},
+                "removable": "0",
+                "rotational": "1",
+                "sas_address": null,
+                "sas_device_handle": null,
+                "scheduler_mode": "none",
+                "sectors": "187776",
+                "sectorsize": "512",
+                "size": "91.69 MB",
+                "support_discard": "4096",
+                "vendor": null,
+                "virtual": 1
+            },
+            "loop13": {
+                "holders": [],
+                "host": "",
+                "links": {
+                    "ids": [],
+                    "labels": [],
+                    "masters": [],
+                    "uuids": []
+                },
+                "model": null,
+                "partitions": {},
+                "removable": "0",
+                "rotational": "1",
+                "sas_address": null,
+                "sas_device_handle": null,
+                "scheduler_mode": "none",
+                "sectors": "904",
+                "sectorsize": "512",
+                "size": "452.00 KB",
+                "support_discard": "4096",
+                "vendor": null,
+                "virtual": 1
+            },
+            "loop14": {
+                "holders": [],
+                "host": "",
+                "links": {
+                    "ids": [],
+                    "labels": [],
+                    "masters": [],
+                    "uuids": []
+                },
+                "model": null,
+                "partitions": {},
+                "removable": "0",
+                "rotational": "1",
+                "sas_address": null,
+                "sas_device_handle": null,
+                "scheduler_mode": "none",
+                "sectors": "83672",
+                "sectorsize": "512",
+                "size": "40.86 MB",
+                "support_discard": "4096",
+                "vendor": null,
+                "virtual": 1
+            },
+            "loop15": {
+                "holders": [],
+                "host": "",
+                "links": {
+                    "ids": [],
+                    "labels": [],
+                    "masters": [],
+                    "uuids": []
+                },
+                "model": null,
+                "partitions": {},
+                "removable": "0",
+                "rotational": "1",
+                "sas_address": null,
+                "sas_device_handle": null,
+                "scheduler_mode": "none",
+                "sectors": "0",
+                "sectorsize": "512",
+                "size": "0.00 Bytes",
+                "support_discard": "4096",
+                "vendor": null,
+                "virtual": 1
+            },
+            "loop2": {
+                "holders": [],
+                "host": "",
+                "links": {
+                    "ids": [],
+                    "labels": [],
+                    "masters": [],
+                    "uuids": []
+                },
+                "model": null,
+                "partitions": {},
+                "removable": "0",
+                "rotational": "1",
+                "sas_address": null,
+                "sas_device_handle": null,
+                "scheduler_mode": "none",
+                "sectors": "130888",
+                "sectorsize": "512",
+                "size": "63.91 MB",
+                "support_discard": "4096",
+                "vendor": null,
+                "virtual": 1
+            },
+            "loop3": {
+                "holders": [],
+                "host": "",
+                "links": {
+                    "ids": [],
+                    "labels": [],
+                    "masters": [],
+                    "uuids": []
+                },
+                "model": null,
+                "partitions": {},
+                "removable": "0",
+                "rotational": "1",
+                "sas_address": null,
+                "sas_device_handle": null,
+                "scheduler_mode": "none",
+                "sectors": "151296",
+                "sectorsize": "512",
+                "size": "73.88 MB",
+                "support_discard": "4096",
+                "vendor": null,
+                "virtual": 1
+            },
+            "loop4": {
+                "holders": [],
+                "host": "",
+                "links": {
+                    "ids": [],
+                    "labels": [],
+                    "masters": [],
+                    "uuids": []
+                },
+                "model": null,
+                "partitions": {},
+                "removable": "0",
+                "rotational": "1",
+                "sas_address": null,
+                "sas_device_handle": null,
+                "scheduler_mode": "none",
+                "sectors": "503632",
+                "sectorsize": "512",
+                "size": "245.91 MB",
+                "support_discard": "4096",
+                "vendor": null,
+                "virtual": 1
+            },
+            "loop5": {
+                "holders": [],
+                "host": "",
+                "links": {
+                    "ids": [],
+                    "labels": [],
+                    "masters": [],
+                    "uuids": []
+                },
+                "model": null,
+                "partitions": {},
+                "removable": "0",
+                "rotational": "1",
+                "sas_address": null,
+                "sas_device_handle": null,
+                "scheduler_mode": "none",
+                "sectors": "151784",
+                "sectorsize": "512",
+                "size": "74.11 MB",
+                "support_discard": "4096",
+                "vendor": null,
+                "virtual": 1
+            },
+            "loop6": {
+                "holders": [],
+                "host": "",
+                "links": {
+                    "ids": [],
+                    "labels": [],
+                    "masters": [],
+                    "uuids": []
+                },
+                "model": null,
+                "partitions": {},
+                "removable": "0",
+                "rotational": "1",
+                "sas_address": null,
+                "sas_device_handle": null,
+                "scheduler_mode": "none",
+                "sectors": "503800",
+                "sectorsize": "512",
+                "size": "246.00 MB",
+                "support_discard": "4096",
+                "vendor": null,
+                "virtual": 1
+            },
+            "loop7": {
+                "holders": [],
+                "host": "",
+                "links": {
+                    "ids": [],
+                    "labels": [],
+                    "masters": [],
+                    "uuids": []
+                },
+                "model": null,
+                "partitions": {},
+                "removable": "0",
+                "rotational": "1",
+                "sas_address": null,
+                "sas_device_handle": null,
+                "scheduler_mode": "none",
+                "sectors": "716176",
+                "sectorsize": "512",
+                "size": "349.70 MB",
+                "support_discard": "4096",
+                "vendor": null,
+                "virtual": 1
+            },
+            "loop8": {
+                "holders": [],
+                "host": "",
+                "links": {
+                    "ids": [],
+                    "labels": [],
+                    "masters": [],
+                    "uuids": []
+                },
+                "model": null,
+                "partitions": {},
+                "removable": "0",
+                "rotational": "1",
+                "sas_address": null,
+                "sas_device_handle": null,
+                "scheduler_mode": "none",
+                "sectors": "1017816",
+                "sectorsize": "512",
+                "size": "496.98 MB",
+                "support_discard": "4096",
+                "vendor": null,
+                "virtual": 1
+            },
+            "loop9": {
+                "holders": [],
+                "host": "",
+                "links": {
+                    "ids": [],
+                    "labels": [],
+                    "masters": [],
+                    "uuids": []
+                },
+                "model": null,
+                "partitions": {},
+                "removable": "0",
+                "rotational": "1",
+                "sas_address": null,
+                "sas_device_handle": null,
+                "scheduler_mode": "none",
+                "sectors": "994336",
+                "sectorsize": "512",
+                "size": "485.52 MB",
+                "support_discard": "4096",
+                "vendor": null,
+                "virtual": 1
+            },
+            "sda": {
+                "holders": [],
+                "host": "SATA controller: Intel Corporation 82801HM/HEM (ICH8M/ICH8M-E) SATA Controller [AHCI mode] (rev 02)",
+                "links": {
+                    "ids": [
+                        "ata-VBOX_HARDDISK_VB15afa92f-b6804972"
+                    ],
+                    "labels": [],
+                    "masters": [],
+                    "uuids": []
+                },
+                "model": "VBOX HARDDISK",
+                "partitions": {
+                    "sda1": {
+                        "holders": [],
+                        "links": {
+                            "ids": [
+                                "ata-VBOX_HARDDISK_VB15afa92f-b6804972-part1"
+                            ],
+                            "labels": [],
+                            "masters": [],
+                            "uuids": []
+                        },
+                        "sectors": "2048",
+                        "sectorsize": 512,
+                        "size": "1.00 MB",
+                        "start": "2048",
+                        "uuid": null
+                    },
+                    "sda2": {
+                        "holders": [],
+                        "links": {
+                            "ids": [
+                                "ata-VBOX_HARDDISK_VB15afa92f-b6804972-part2"
+                            ],
+                            "labels": [],
+                            "masters": [],
+                            "uuids": [
+                                "F332-7A97"
+                            ]
+                        },
+                        "sectors": "1050624",
+                        "sectorsize": 512,
+                        "size": "513.00 MB",
+                        "start": "4096",
+                        "uuid": "F332-7A97"
+                    },
+                    "sda3": {
+                        "holders": [],
+                        "links": {
+                            "ids": [
+                                "ata-VBOX_HARDDISK_VB15afa92f-b6804972-part3"
+                            ],
+                            "labels": [],
+                            "masters": [],
+                            "uuids": [
+                                "4738c422-f145-4864-a00b-5643b2cf1d56"
+                            ]
+                        },
+                        "sectors": "40886272",
+                        "sectorsize": 512,
+                        "size": "19.50 GB",
+                        "start": "1054720",
+                        "uuid": "4738c422-f145-4864-a00b-5643b2cf1d56"
+                    }
+                },
+                "removable": "0",
+                "rotational": "1",
+                "sas_address": null,
+                "sas_device_handle": null,
+                "scheduler_mode": "mq-deadline",
+                "sectors": "41943040",
+                "sectorsize": "512",
+                "size": "20.00 GB",
+                "support_discard": "0",
+                "vendor": "ATA",
+                "virtual": 1
+            },
+            "sr0": {
+                "holders": [],
+                "host": "IDE interface: Intel Corporation 82371AB/EB/MB PIIX4 IDE (rev 01)",
+                "links": {
+                    "ids": [
+                        "ata-VBOX_CD-ROM_VB2-01700376"
+                    ],
+                    "labels": [],
+                    "masters": [],
+                    "uuids": []
+                },
+                "model": "CD-ROM",
+                "partitions": {},
+                "removable": "1",
+                "rotational": "1",
+                "sas_address": null,
+                "sas_device_handle": null,
+                "scheduler_mode": "mq-deadline",
+                "sectors": "2097151",
+                "sectorsize": "512",
+                "size": "1024.00 MB",
+                "support_discard": "0",
+                "vendor": "VBOX",
+                "virtual": 1
+            }
+        },
+        "ansible_distribution": "Ubuntu",
+        "ansible_distribution_file_parsed": true,
+        "ansible_distribution_file_path": "/etc/os-release",
+        "ansible_distribution_file_variety": "Debian",
+        "ansible_distribution_major_version": "22",
+        "ansible_distribution_release": "jammy",
+        "ansible_distribution_version": "22.04",
+        "ansible_dns": {
+            "nameservers": [
+                "127.0.0.53"
+            ],
+            "options": {
+                "edns0": true,
+                "trust-ad": true
+            },
+            "search": [
+                "."
+            ]
+        },
+        "ansible_domain": "",
+        "ansible_effective_group_id": 0,
+        "ansible_effective_user_id": 0,
+        "ansible_enp0s3": {
+            "active": true,
+            "device": "enp0s3",
+            "features": {
+                "esp_hw_offload": "off [fixed]",
+                "esp_tx_csum_hw_offload": "off [fixed]",
+                "fcoe_mtu": "off [fixed]",
+                "generic_receive_offload": "on",
+                "generic_segmentation_offload": "on",
+                "highdma": "off [fixed]",
+                "hsr_dup_offload": "off [fixed]",
+                "hsr_fwd_offload": "off [fixed]",
+                "hsr_tag_ins_offload": "off [fixed]",
+                "hsr_tag_rm_offload": "off [fixed]",
+                "hw_tc_offload": "off [fixed]",
+                "l2_fwd_offload": "off [fixed]",
+                "large_receive_offload": "off [fixed]",
+                "loopback": "off [fixed]",
+                "macsec_hw_offload": "off [fixed]",
+                "netns_local": "off [fixed]",
+                "ntuple_filters": "off [fixed]",
+                "receive_hashing": "off [fixed]",
+                "rx_all": "off",
+                "rx_checksumming": "off",
+                "rx_fcs": "off",
+                "rx_gro_hw": "off [fixed]",
+                "rx_gro_list": "off",
+                "rx_udp_gro_forwarding": "off",
+                "rx_udp_tunnel_port_offload": "off [fixed]",
+                "rx_vlan_filter": "on [fixed]",
+                "rx_vlan_offload": "on",
+                "rx_vlan_stag_filter": "off [fixed]",
+                "rx_vlan_stag_hw_parse": "off [fixed]",
+                "scatter_gather": "on",
+                "tcp_segmentation_offload": "on",
+                "tls_hw_record": "off [fixed]",
+                "tls_hw_rx_offload": "off [fixed]",
+                "tls_hw_tx_offload": "off [fixed]",
+                "tx_checksum_fcoe_crc": "off [fixed]",
+                "tx_checksum_ip_generic": "on",
+                "tx_checksum_ipv4": "off [fixed]",
+                "tx_checksum_ipv6": "off [fixed]",
+                "tx_checksum_sctp": "off [fixed]",
+                "tx_checksumming": "on",
+                "tx_esp_segmentation": "off [fixed]",
+                "tx_fcoe_segmentation": "off [fixed]",
+                "tx_gre_csum_segmentation": "off [fixed]",
+                "tx_gre_segmentation": "off [fixed]",
+                "tx_gso_list": "off [fixed]",
+                "tx_gso_partial": "off [fixed]",
+                "tx_gso_robust": "off [fixed]",
+                "tx_ipxip4_segmentation": "off [fixed]",
+                "tx_ipxip6_segmentation": "off [fixed]",
+                "tx_lockless": "off [fixed]",
+                "tx_nocache_copy": "off",
+                "tx_scatter_gather": "on",
+                "tx_scatter_gather_fraglist": "off [fixed]",
+                "tx_sctp_segmentation": "off [fixed]",
+                "tx_tcp6_segmentation": "off [fixed]",
+                "tx_tcp_ecn_segmentation": "off [fixed]",
+                "tx_tcp_mangleid_segmentation": "off",
+                "tx_tcp_segmentation": "on",
+                "tx_tunnel_remcsum_segmentation": "off [fixed]",
+                "tx_udp_segmentation": "off [fixed]",
+                "tx_udp_tnl_csum_segmentation": "off [fixed]",
+                "tx_udp_tnl_segmentation": "off [fixed]",
+                "tx_vlan_offload": "on [fixed]",
+                "tx_vlan_stag_hw_insert": "off [fixed]",
+                "vlan_challenged": "off [fixed]"
+            },
+            "hw_timestamp_filters": [],
+            "ipv4": {
+                "address": "192.168.0.170",
+                "broadcast": "192.168.0.255",
+                "netmask": "255.255.255.0",
+                "network": "192.168.0.0",
+                "prefix": "24"
+            },
+            "ipv6": [
+                {
+                    "address": "2a02:8109:a802:2a00:242f:4b8:3b73:ff48",
+                    "prefix": "128",
+                    "scope": "global"
+                },
+                {
+                    "address": "2a02:8109:a802:2a00:cfc7:98ac:2eb6:50eb",
+                    "prefix": "64",
+                    "scope": "global"
+                },
+                {
+                    "address": "fe80::f985:ba66:78df:b039",
+                    "prefix": "64",
+                    "scope": "link"
+                },
+                {
+                    "address": "2a02:8109:a802:2a00:ca46:295a:b8df:f5d2",
+                    "prefix": "64",
+                    "scope": "global"
+                }
+            ],
+            "macaddress": "08:00:27:29:db:1f",
+            "module": "e1000",
+            "mtu": 1500,
+            "pciid": "0000:00:03.0",
+            "promisc": false,
+            "speed": 1000,
+            "timestamping": [],
+            "type": "ether"
+        },
+        "ansible_env": {
+            "HOME": "/root",
+            "LANG": "en_US.UTF-8",
+            "LC_ADDRESS": "de_DE.UTF-8",
+            "LC_IDENTIFICATION": "de_DE.UTF-8",
+            "LC_MEASUREMENT": "de_DE.UTF-8",
+            "LC_MONETARY": "de_DE.UTF-8",
+            "LC_NAME": "de_DE.UTF-8",
+            "LC_NUMERIC": "de_DE.UTF-8",
+            "LC_PAPER": "de_DE.UTF-8",
+            "LC_TELEPHONE": "de_DE.UTF-8",
+            "LC_TIME": "de_DE.UTF-8",
+            "LOGNAME": "root",
+            "MAIL": "/var/mail/root",
+            "PATH": "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin",
+            "PWD": "/home/amir",
+            "SHELL": "/bin/bash",
+            "SUDO_COMMAND": "/bin/sh -c echo BECOME-SUCCESS-unqvwamkrzrmyrjbzsffjtbvklrusvrm ; /usr/bin/python3 /tmp/ansible-tmp-1705587228.132995-4666-130427965649920/AnsiballZ_setup.py",
+            "SUDO_GID": "1000",
+            "SUDO_UID": "1000",
+            "SUDO_USER": "amir",
+            "TERM": "xterm",
+            "USER": "root"
+        },
+        "ansible_fibre_channel_wwn": [],
+        "ansible_fips": false,
+        "ansible_form_factor": "Other",
+        "ansible_fqdn": "ubu2",
+        "ansible_hostname": "ubu2",
+        "ansible_hostnqn": "",
+        "ansible_interfaces": [
+            "enp0s3",
+            "lo"
+        ],
+        "ansible_is_chroot": false,
+        "ansible_iscsi_iqn": "",
+        "ansible_kernel": "6.5.0-14-generic",
+        "ansible_kernel_version": "#14~22.04.1-Ubuntu SMP PREEMPT_DYNAMIC Mon Nov 20 18:15:30 UTC 2",
+        "ansible_lo": {
+            "active": true,
+            "device": "lo",
+            "features": {
+                "esp_hw_offload": "off [fixed]",
+                "esp_tx_csum_hw_offload": "off [fixed]",
+                "fcoe_mtu": "off [fixed]",
+                "generic_receive_offload": "on",
+                "generic_segmentation_offload": "on",
+                "highdma": "on [fixed]",
+                "hsr_dup_offload": "off [fixed]",
+                "hsr_fwd_offload": "off [fixed]",
+                "hsr_tag_ins_offload": "off [fixed]",
+                "hsr_tag_rm_offload": "off [fixed]",
+                "hw_tc_offload": "off [fixed]",
+                "l2_fwd_offload": "off [fixed]",
+                "large_receive_offload": "off [fixed]",
+                "loopback": "on [fixed]",
+                "macsec_hw_offload": "off [fixed]",
+                "netns_local": "on [fixed]",
+                "ntuple_filters": "off [fixed]",
+                "receive_hashing": "off [fixed]",
+                "rx_all": "off [fixed]",
+                "rx_checksumming": "on [fixed]",
+                "rx_fcs": "off [fixed]",
+                "rx_gro_hw": "off [fixed]",
+                "rx_gro_list": "off",
+                "rx_udp_gro_forwarding": "off",
+                "rx_udp_tunnel_port_offload": "off [fixed]",
+                "rx_vlan_filter": "off [fixed]",
+                "rx_vlan_offload": "off [fixed]",
+                "rx_vlan_stag_filter": "off [fixed]",
+                "rx_vlan_stag_hw_parse": "off [fixed]",
+                "scatter_gather": "on",
+                "tcp_segmentation_offload": "on",
+                "tls_hw_record": "off [fixed]",
+                "tls_hw_rx_offload": "off [fixed]",
+                "tls_hw_tx_offload": "off [fixed]",
+                "tx_checksum_fcoe_crc": "off [fixed]",
+                "tx_checksum_ip_generic": "on [fixed]",
+                "tx_checksum_ipv4": "off [fixed]",
+                "tx_checksum_ipv6": "off [fixed]",
+                "tx_checksum_sctp": "on [fixed]",
+                "tx_checksumming": "on",
+                "tx_esp_segmentation": "off [fixed]",
+                "tx_fcoe_segmentation": "off [fixed]",
+                "tx_gre_csum_segmentation": "off [fixed]",
+                "tx_gre_segmentation": "off [fixed]",
+                "tx_gso_list": "on",
+                "tx_gso_partial": "off [fixed]",
+                "tx_gso_robust": "off [fixed]",
+                "tx_ipxip4_segmentation": "off [fixed]",
+                "tx_ipxip6_segmentation": "off [fixed]",
+                "tx_lockless": "on [fixed]",
+                "tx_nocache_copy": "off [fixed]",
+                "tx_scatter_gather": "on [fixed]",
+                "tx_scatter_gather_fraglist": "on [fixed]",
+                "tx_sctp_segmentation": "on",
+                "tx_tcp6_segmentation": "on",
+                "tx_tcp_ecn_segmentation": "on",
+                "tx_tcp_mangleid_segmentation": "on",
+                "tx_tcp_segmentation": "on",
+                "tx_tunnel_remcsum_segmentation": "off [fixed]",
+                "tx_udp_segmentation": "on",
+                "tx_udp_tnl_csum_segmentation": "off [fixed]",
+                "tx_udp_tnl_segmentation": "off [fixed]",
+                "tx_vlan_offload": "off [fixed]",
+                "tx_vlan_stag_hw_insert": "off [fixed]",
+                "vlan_challenged": "on [fixed]"
+            },
+            "hw_timestamp_filters": [],
+            "ipv4": {
+                "address": "127.0.0.1",
+                "broadcast": "",
+                "netmask": "255.0.0.0",
+                "network": "127.0.0.0",
+                "prefix": "8"
+            },
+            "ipv6": [
+                {
+                    "address": "::1",
+                    "prefix": "128",
+                    "scope": "host"
+                }
+            ],
+            "mtu": 65536,
+            "promisc": false,
+            "timestamping": [],
+            "type": "loopback"
+        },
+        "ansible_loadavg": {
+            "15m": 0.07470703125,
+            "1m": 0.05908203125,
+            "5m": 0.07080078125
+        },
+        "ansible_local": {},
+        "ansible_locally_reachable_ips": {
+            "ipv4": [
+                "127.0.0.0/8",
+                "127.0.0.1",
+                "192.168.0.170"
+            ],
+            "ipv6": [
+                "::1",
+                "2a02:8109:a802:2a00:242f:4b8:3b73:ff48",
+                "2a02:8109:a802:2a00:ca46:295a:b8df:f5d2",
+                "2a02:8109:a802:2a00:cfc7:98ac:2eb6:50eb",
+                "fe80::f985:ba66:78df:b039"
+            ]
+        },
+        "ansible_lsb": {
+            "codename": "jammy",
+            "description": "Ubuntu 22.04.3 LTS",
+            "id": "Ubuntu",
+            "major_release": "22",
+            "release": "22.04"
+        },
+        "ansible_lvm": "N/A",
+        "ansible_machine": "x86_64",
+        "ansible_machine_id": "f20e35d85c974eaf84047a99c14b55b2",
+        "ansible_memfree_mb": 1701,
+        "ansible_memory_mb": {
+            "nocache": {
+                "free": 2360,
+                "used": 603
+            },
+            "real": {
+                "free": 1701,
+                "total": 2963,
+                "used": 1262
+            },
+            "swap": {
+                "cached": 0,
+                "free": 2139,
+                "total": 2139,
+                "used": 0
+            }
+        },
+        "ansible_memtotal_mb": 2963,
+        "ansible_mounts": [
+            {
+                "block_available": 1353095,
+                "block_size": 4096,
+                "block_total": 4986524,
+                "block_used": 3633429,
+                "device": "/dev/sda3",
+                "fstype": "ext4",
+                "inode_available": 1053429,
+                "inode_total": 1277952,
+                "inode_used": 224523,
+                "mount": "/",
+                "options": "rw,relatime,errors=remount-ro",
+                "size_available": 5542277120,
+                "size_total": 20424802304,
+                "uuid": "4738c422-f145-4864-a00b-5643b2cf1d56"
+            },
+            {
+                "block_available": 0,
+                "block_size": 131072,
+                "block_total": 1,
+                "block_used": 1,
+                "device": "/dev/loop1",
+                "fstype": "squashfs",
+                "inode_available": 0,
+                "inode_total": 29,
+                "inode_used": 29,
+                "mount": "/snap/bare/5",
+                "options": "ro,nodev,relatime,errors=continue,threads=single",
+                "size_available": 0,
+                "size_total": 131072,
+                "uuid": "N/A"
+            },
+            {
+                "block_available": 0,
+                "block_size": 131072,
+                "block_total": 512,
+                "block_used": 512,
+                "device": "/dev/loop2",
+                "fstype": "squashfs",
+                "inode_available": 0,
+                "inode_total": 12041,
+                "inode_used": 12041,
+                "mount": "/snap/core20/2105",
+                "options": "ro,nodev,relatime,errors=continue,threads=single",
+                "size_available": 0,
+                "size_total": 67108864,
+                "uuid": "N/A"
+            },
+            {
+                "block_available": 0,
+                "block_size": 131072,
+                "block_total": 591,
+                "block_used": 591,
+                "device": "/dev/loop3",
+                "fstype": "squashfs",
+                "inode_available": 0,
+                "inode_total": 14327,
+                "inode_used": 14327,
+                "mount": "/snap/core22/858",
+                "options": "ro,nodev,relatime,errors=continue,threads=single",
+                "size_available": 0,
+                "size_total": 77463552,
+                "uuid": "N/A"
+            },
+            {
+                "block_available": 0,
+                "block_size": 131072,
+                "block_total": 593,
+                "block_used": 593,
+                "device": "/dev/loop5",
+                "fstype": "squashfs",
+                "inode_available": 0,
+                "inode_total": 14395,
+                "inode_used": 14395,
+                "mount": "/snap/core22/1033",
+                "options": "ro,nodev,relatime,errors=continue,threads=single",
+                "size_available": 0,
+                "size_total": 77725696,
+                "uuid": "N/A"
+            },
+            {
+                "block_available": 0,
+                "block_size": 131072,
+                "block_total": 508,
+                "block_used": 508,
+                "device": "/dev/loop0",
+                "fstype": "squashfs",
+                "inode_available": 0,
+                "inode_total": 11995,
+                "inode_used": 11995,
+                "mount": "/snap/core20/1974",
+                "options": "ro,nodev,relatime,errors=continue,threads=single",
+                "size_available": 0,
+                "size_total": 66584576,
+                "uuid": "N/A"
+            },
+            {
+                "block_available": 0,
+                "block_size": 131072,
+                "block_total": 1968,
+                "block_used": 1968,
+                "device": "/dev/loop4",
+                "fstype": "squashfs",
+                "inode_available": 0,
+                "inode_total": 797,
+                "inode_used": 797,
+                "mount": "/snap/firefox/3600",
+                "options": "ro,nodev,relatime,errors=continue,threads=single",
+                "size_available": 0,
+                "size_total": 257949696,
+                "uuid": "N/A"
+            },
+            {
+                "block_available": 0,
+                "block_size": 131072,
+                "block_total": 1968,
+                "block_used": 1968,
+                "device": "/dev/loop6",
+                "fstype": "squashfs",
+                "inode_available": 0,
+                "inode_total": 797,
+                "inode_used": 797,
+                "mount": "/snap/firefox/3626",
+                "options": "ro,nodev,relatime,errors=continue,threads=single",
+                "size_available": 0,
+                "size_total": 257949696,
+                "uuid": "N/A"
+            },
+            {
+                "block_available": 0,
+                "block_size": 131072,
+                "block_total": 2798,
+                "block_used": 2798,
+                "device": "/dev/loop7",
+                "fstype": "squashfs",
+                "inode_available": 0,
+                "inode_total": 18307,
+                "inode_used": 18307,
+                "mount": "/snap/gnome-3-38-2004/143",
+                "options": "ro,nodev,relatime,errors=continue,threads=single",
+                "size_available": 0,
+                "size_total": 366739456,
+                "uuid": "N/A"
+            },
+            {
+                "block_available": 0,
+                "block_size": 131072,
+                "block_total": 3976,
+                "block_used": 3976,
+                "device": "/dev/loop8",
+                "fstype": "squashfs",
+                "inode_available": 0,
+                "inode_total": 20627,
+                "inode_used": 20627,
+                "mount": "/snap/gnome-42-2204/141",
+                "options": "ro,nodev,relatime,errors=continue,threads=single",
+                "size_available": 0,
+                "size_total": 521142272,
+                "uuid": "N/A"
+            },
+            {
+                "block_available": 0,
+                "block_size": 131072,
+                "block_total": 3885,
+                "block_used": 3885,
+                "device": "/dev/loop9",
+                "fstype": "squashfs",
+                "inode_available": 0,
+                "inode_total": 20541,
+                "inode_used": 20541,
+                "mount": "/snap/gnome-42-2204/120",
+                "options": "ro,nodev,relatime,errors=continue,threads=single",
+                "size_available": 0,
+                "size_total": 509214720,
+                "uuid": "N/A"
+            },
+            {
+                "block_available": 0,
+                "block_size": 131072,
+                "block_total": 99,
+                "block_used": 99,
+                "device": "/dev/loop10",
+                "fstype": "squashfs",
+                "inode_available": 0,
+                "inode_total": 2038,
+                "inode_used": 2038,
+                "mount": "/snap/snap-store/959",
+                "options": "ro,nodev,relatime,errors=continue,threads=single",
+                "size_available": 0,
+                "size_total": 12976128,
+                "uuid": "N/A"
+            },
+            {
+                "block_available": 1353095,
+                "block_size": 4096,
+                "block_total": 4986524,
+                "block_used": 3633429,
+                "device": "/dev/sda3",
+                "fstype": "ext4",
+                "inode_available": 1053429,
+                "inode_total": 1277952,
+                "inode_used": 224523,
+                "mount": "/var/snap/firefox/common/host-hunspell",
+                "options": "ro,noexec,noatime,errors=remount-ro,bind",
+                "size_available": 5542277120,
+                "size_total": 20424802304,
+                "uuid": "4738c422-f145-4864-a00b-5643b2cf1d56"
+            },
+            {
+                "block_available": 0,
+                "block_size": 131072,
+                "block_total": 324,
+                "block_used": 324,
+                "device": "/dev/loop11",
+                "fstype": "squashfs",
+                "inode_available": 0,
+                "inode_total": 658,
+                "inode_used": 658,
+                "mount": "/snap/snapd/20671",
+                "options": "ro,nodev,relatime,errors=continue,threads=single",
+                "size_available": 0,
+                "size_total": 42467328,
+                "uuid": "N/A"
+            },
+            {
+                "block_available": 0,
+                "block_size": 131072,
+                "block_total": 734,
+                "block_used": 734,
+                "device": "/dev/loop12",
+                "fstype": "squashfs",
+                "inode_available": 0,
+                "inode_total": 76208,
+                "inode_used": 76208,
+                "mount": "/snap/gtk-common-themes/1535",
+                "options": "ro,nodev,relatime,errors=continue,threads=single",
+                "size_available": 0,
+                "size_total": 96206848,
+                "uuid": "N/A"
+            },
+            {
+                "block_available": 0,
+                "block_size": 131072,
+                "block_total": 4,
+                "block_used": 4,
+                "device": "/dev/loop13",
+                "fstype": "squashfs",
+                "inode_available": 0,
+                "inode_total": 28,
+                "inode_used": 28,
+                "mount": "/snap/snapd-desktop-integration/83",
+                "options": "ro,nodev,relatime,errors=continue,threads=single",
+                "size_available": 0,
+                "size_total": 524288,
+                "uuid": "N/A"
+            },
+            {
+                "block_available": 0,
+                "block_size": 131072,
+                "block_total": 327,
+                "block_used": 327,
+                "device": "/dev/loop14",
+                "fstype": "squashfs",
+                "inode_available": 0,
+                "inode_total": 658,
+                "inode_used": 658,
+                "mount": "/snap/snapd/20290",
+                "options": "ro,nodev,relatime,errors=continue,threads=single",
+                "size_available": 0,
+                "size_total": 42860544,
+                "uuid": "N/A"
+            },
+            {
+                "block_available": 129508,
+                "block_size": 4096,
+                "block_total": 131063,
+                "block_used": 1555,
+                "device": "/dev/sda2",
+                "fstype": "vfat",
+                "inode_available": 0,
+                "inode_total": 0,
+                "inode_used": 0,
+                "mount": "/boot/efi",
+                "options": "rw,relatime,fmask=0077,dmask=0077,codepage=437,iocharset=iso8859-1,shortname=mixed,errors=remount-ro",
+                "size_available": 530464768,
+                "size_total": 536834048,
+                "uuid": "F332-7A97"
+            }
+        ],
+        "ansible_nodename": "ubu2",
+        "ansible_os_family": "Debian",
+        "ansible_pkg_mgr": "apt",
+        "ansible_proc_cmdline": {
+            "BOOT_IMAGE": "/boot/vmlinuz-6.5.0-14-generic",
+            "quiet": true,
+            "ro": true,
+            "root": "UUID=4738c422-f145-4864-a00b-5643b2cf1d56",
+            "splash": true
+        },
+        "ansible_processor": [
+            "0",
+            "GenuineIntel",
+            "11th Gen Intel(R) Core(TM) i7-1185G7 @ 3.00GHz",
+            "1",
+            "GenuineIntel",
+            "11th Gen Intel(R) Core(TM) i7-1185G7 @ 3.00GHz"
+        ],
+        "ansible_processor_cores": 2,
+        "ansible_processor_count": 1,
+        "ansible_processor_nproc": 2,
+        "ansible_processor_threads_per_core": 1,
+        "ansible_processor_vcpus": 2,
+        "ansible_product_name": "VirtualBox",
+        "ansible_product_serial": "0",
+        "ansible_product_uuid": "3c3497cd-b7a8-cf41-bc9c-58b7057fd5c0",
+        "ansible_product_version": "1.2",
+        "ansible_python": {
+            "executable": "/usr/bin/python3",
+            "has_sslcontext": true,
+            "type": "cpython",
+            "version": {
+                "major": 3,
+                "micro": 12,
+                "minor": 10,
+                "releaselevel": "final",
+                "serial": 0
+            },
+            "version_info": [
+                3,
+                10,
+                12,
+                "final",
+                0
+            ]
+        },
+        "ansible_python_version": "3.10.12",
+        "ansible_real_group_id": 0,
+        "ansible_real_user_id": 0,
+        "ansible_selinux": {
+            "status": "disabled"
+        },
+        "ansible_selinux_python_present": true,
+        "ansible_service_mgr": "systemd",
+        "ansible_ssh_host_key_ecdsa_public": "AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBOXrrB5MEZAsb5MlxaUyNCuBb6PDn6MYJBlM6LqNc5DdIl+zCvGXExv0rAWooC+xAo0riuQYwwBe95E2YLE8+aY=",
+        "ansible_ssh_host_key_ecdsa_public_keytype": "ecdsa-sha2-nistp256",
+        "ansible_ssh_host_key_ed25519_public": "AAAAC3NzaC1lZDI1NTE5AAAAIGd/vxHoMHZbKy9uWYrSL9q7pJpH8thyGv1z1uu8I7Iv",
+        "ansible_ssh_host_key_ed25519_public_keytype": "ssh-ed25519",
+        "ansible_ssh_host_key_rsa_public": "AAAAB3NzaC1yc2EAAAADAQABAAABgQDff//1BtOuNDW8G9ro+Klk4YTMTdGVMyuki7exSb4lH5e7EyFDuvZiZ5f2WqDFHwDs9qrvX7ShRDO01B0Q+BowCEyLTHjyRGkxpn+xpsUT1Svgp5EoA5diaA+TuAJoeOqYDDBr6ix06g8Vp67SE0APfg6uVdL15bo6vGdlJvmgKzpkR/soxPk+qjGCT/f9vcQ2fs4L1IGG6SSBr63k6tm4E782/Bx9j92z6XO1pVJ9AxdMUZs2w0nEkGLn0AkDMKRHgn82YyBVwQifi9V2Xe6WkuZd6rATZWQ2LDZsMZCdaq+6hDCH1wG32I8uigQmgFLEmd+eRB4fQbXZl0zJr2UQenant4Ky85Xwef7vykb+xZ6pQr0u8ooP8z97Ml/6g4K4JzIfINbBJAbB/KtQc6o05K+oeyclIOoKFpAJlOcBvWyW268Vf2ZdWDvqQ/LDwI5kzX/9n/U+kbwmqAVYISkRF0WUQt0fd/n75tskPMP+dwEcUqcgt2YF1Wc214Yttws=",
+        "ansible_ssh_host_key_rsa_public_keytype": "ssh-rsa",
+        "ansible_swapfree_mb": 2139,
+        "ansible_swaptotal_mb": 2139,
+        "ansible_system": "Linux",
+        "ansible_system_capabilities": [],
+        "ansible_system_capabilities_enforced": "False",
+        "ansible_system_vendor": "innotek GmbH",
+        "ansible_uptime_seconds": 666,
+        "ansible_user_dir": "/root",
+        "ansible_user_gecos": "root",
+        "ansible_user_gid": 0,
+        "ansible_user_id": "root",
+        "ansible_user_shell": "/bin/bash",
+        "ansible_user_uid": 0,
+        "ansible_userspace_architecture": "x86_64",
+        "ansible_userspace_bits": "64",
+        "ansible_virtualization_role": "guest",
+        "ansible_virtualization_tech_guest": [
+            "virtualbox"
+        ],
+        "ansible_virtualization_tech_host": [],
+        "ansible_virtualization_type": "virtualbox",
+        "discovered_interpreter_python": "/usr/bin/python3",
+        "gather_subset": [
+            "all"
+        ],
+        "module_setup": true
+    },
+    "changed": false,
+    "deprecations": [],
+    "warnings": []
+}
+2024-01-18 15:19:39,501 p=4812 u=amir n=ansible | PLAY [all] *******************************************************************************************************************************************
+2024-01-18 15:19:39,526 p=4812 u=amir n=ansible | TASK [common : update & upgrade pkg] *****************************************************************************************************************
+2024-01-18 15:19:43,404 p=4812 u=amir n=ansible | ok: [web.test.com]
+2024-01-18 15:19:49,633 p=4812 u=amir n=ansible | fatal: [db.test.com]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: ssh: connect to host db.test.com port 22: Connection timed out", "unreachable": true}
+2024-01-18 15:19:49,640 p=4812 u=amir n=ansible | TASK [common : install apps] *************************************************************************************************************************
+2024-01-18 15:19:50,869 p=4812 u=amir n=ansible | ok: [web.test.com] => (item=plocate)
+2024-01-18 15:19:50,878 p=4812 u=amir n=ansible | TASK [common : Tasks done] ***************************************************************************************************************************
+2024-01-18 15:19:50,907 p=4812 u=amir n=ansible | ok: [web.test.com] => {
+    "msg": [
+        "Task done (*_*)"
+    ]
+}
+2024-01-18 15:19:50,917 p=4812 u=amir n=ansible | TASK [common : copy a certificate] *******************************************************************************************************************
+2024-01-18 15:19:52,200 p=4812 u=amir n=ansible | ok: [web.test.com]
+2024-01-18 15:19:52,205 p=4812 u=amir n=ansible | TASK [common : use variable] *************************************************************************************************************************
+2024-01-18 15:19:52,260 p=4812 u=amir n=ansible | ok: [web.test.com] => (item=192.168.0.170) => {
+    "msg": "192.168.0.170"
+}
+2024-01-18 15:19:52,262 p=4812 u=amir n=ansible | ok: [web.test.com] => (item=ubu2) => {
+    "msg": "ubu2"
+}
+2024-01-18 15:19:52,264 p=4812 u=amir n=ansible | ok: [web.test.com] => (item=Ubuntu) => {
+    "msg": "Ubuntu"
+}
+2024-01-18 15:19:52,293 p=4812 u=amir n=ansible | PLAY RECAP *******************************************************************************************************************************************
+2024-01-18 15:19:52,295 p=4812 u=amir n=ansible | db.test.com                : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+2024-01-18 15:19:52,295 p=4812 u=amir n=ansible | web.test.com               : ok=5    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2024-01-18 15:36:39,482 p=4941 u=amir n=ansible | playbook: playbooks/gathering.yml
+2024-01-18 15:36:39,484 p=4941 u=amir n=ansible |   play #1 (all): data gathering from gather Facts	TAGS: []
+2024-01-18 15:36:39,486 p=4941 u=amir n=ansible |       TASK TAGS: [gathering]
+
+2024-01-18 15:37:08,372 p=4944 u=amir n=ansible | PLAY [data gathering from gather Facts] **************************************************************************************************************
+2024-01-18 15:37:08,381 p=4944 u=amir n=ansible | TASK [Gathering Facts] *******************************************************************************************************************************
+2024-01-18 15:37:10,981 p=4944 u=amir n=ansible | ok: [web.test.com]
+2024-01-18 15:37:11,522 p=4944 u=amir n=ansible | fatal: [db.test.com]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: ssh: connect to host db.test.com port 22: No route to host", "unreachable": true}
+2024-01-18 15:37:11,562 p=4944 u=amir n=ansible | TASK [gathering : selected Data from gatherings Facts] ***********************************************************************************************
+2024-01-18 15:37:11,587 p=4944 u=amir n=ansible | fatal: [web.test.com]: FAILED! => {"msg": "The task includes an option with an undefined variable. The error was: 'infos' is undefined. 'infos' is undefined\n\nThe error appears to be in '/home/amir/my-ansible/roles/gathering/tasks/main.yml': line 3, column 3, but may\nbe elsewhere in the file depending on the exact syntax problem.\n\nThe offending line appears to be:\n\n\n- name: selected Data from gatherings Facts\n  ^ here\n"}
+2024-01-18 15:37:11,590 p=4944 u=amir n=ansible | PLAY RECAP *******************************************************************************************************************************************
+2024-01-18 15:37:11,591 p=4944 u=amir n=ansible | db.test.com                : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+2024-01-18 15:37:11,592 p=4944 u=amir n=ansible | web.test.com               : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2024-01-18 15:38:36,198 p=5000 u=amir n=ansible | PLAY [data gathering from gather Facts] **************************************************************************************************************
+2024-01-18 15:38:36,208 p=5000 u=amir n=ansible | TASK [Gathering Facts] *******************************************************************************************************************************
+2024-01-18 15:38:38,533 p=5000 u=amir n=ansible | ok: [web.test.com]
+2024-01-18 15:38:39,395 p=5000 u=amir n=ansible | fatal: [db.test.com]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: ssh: connect to host db.test.com port 22: No route to host", "unreachable": true}
+2024-01-18 15:38:39,438 p=5000 u=amir n=ansible | TASK [gathering : selected Data from gatherings Facts] ***********************************************************************************************
+2024-01-18 15:38:39,479 p=5000 u=amir n=ansible | fatal: [web.test.com]: FAILED! => {"msg": "template error while templating string: unexpected '>'. String: {{This is new Infos ----->  my_ip_address}}. unexpected '>'"}
+2024-01-18 15:38:39,483 p=5000 u=amir n=ansible | PLAY RECAP *******************************************************************************************************************************************
+2024-01-18 15:38:39,484 p=5000 u=amir n=ansible | db.test.com                : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+2024-01-18 15:38:39,485 p=5000 u=amir n=ansible | web.test.com               : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2024-01-18 15:39:13,015 p=5024 u=amir n=ansible | PLAY [data gathering from gather Facts] **************************************************************************************************************
+2024-01-18 15:39:13,037 p=5024 u=amir n=ansible | TASK [Gathering Facts] *******************************************************************************************************************************
+2024-01-18 15:39:15,132 p=5024 u=amir n=ansible | ok: [web.test.com]
+2024-01-18 15:39:16,224 p=5024 u=amir n=ansible | fatal: [db.test.com]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: ssh: connect to host db.test.com port 22: No route to host", "unreachable": true}
+2024-01-18 15:39:16,250 p=5024 u=amir n=ansible | TASK [gathering : selected Data from gatherings Facts] ***********************************************************************************************
+2024-01-18 15:39:16,312 p=5024 u=amir n=ansible | ok: [web.test.com] => (item=my_ip_address) => {
+    "ansible_loop_var": "item",
+    "item": "my_ip_address",
+    "my_ip_address": "192.168.0.170"
+}
+2024-01-18 15:39:16,322 p=5024 u=amir n=ansible | ok: [web.test.com] => (item=my_hostname) => {
+    "ansible_loop_var": "item",
+    "item": "my_hostname",
+    "my_hostname": "ubu2"
+}
+2024-01-18 15:39:16,331 p=5024 u=amir n=ansible | ok: [web.test.com] => (item=my_distribution) => {
+    "ansible_loop_var": "item",
+    "item": "my_distribution",
+    "my_distribution": "Ubuntu"
+}
+2024-01-18 15:39:16,380 p=5024 u=amir n=ansible | PLAY RECAP *******************************************************************************************************************************************
+2024-01-18 15:39:16,381 p=5024 u=amir n=ansible | db.test.com                : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+2024-01-18 15:39:16,381 p=5024 u=amir n=ansible | web.test.com               : ok=2    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2024-01-18 15:41:17,716 p=5047 u=amir n=ansible | PLAY [data gathering from gather Facts] **************************************************************************************************************
+2024-01-18 15:41:17,728 p=5047 u=amir n=ansible | TASK [Gathering Facts] *******************************************************************************************************************************
+2024-01-18 15:41:19,528 p=5047 u=amir n=ansible | ok: [db.test.com]
+2024-01-18 15:41:19,870 p=5047 u=amir n=ansible | ok: [web.test.com]
+2024-01-18 15:41:19,905 p=5047 u=amir n=ansible | TASK [gathering : selected Data from gatherings Facts] ***********************************************************************************************
+2024-01-18 15:41:20,024 p=5047 u=amir n=ansible | ok: [db.test.com] => (item=my_ip_address) => {
+    "ansible_loop_var": "item",
+    "item": "my_ip_address",
+    "my_ip_address": "192.168.0.127"
+}
+2024-01-18 15:41:20,033 p=5047 u=amir n=ansible | ok: [web.test.com] => (item=my_ip_address) => {
+    "ansible_loop_var": "item",
+    "item": "my_ip_address",
+    "my_ip_address": "192.168.0.170"
+}
+2024-01-18 15:41:20,034 p=5047 u=amir n=ansible | ok: [web.test.com] => (item=my_hostname) => {
+    "ansible_loop_var": "item",
+    "item": "my_hostname",
+    "my_hostname": "ubu2"
+}
+2024-01-18 15:41:20,036 p=5047 u=amir n=ansible | ok: [web.test.com] => (item=my_distribution) => {
+    "ansible_loop_var": "item",
+    "item": "my_distribution",
+    "my_distribution": "Ubuntu"
+}
+2024-01-18 15:41:20,048 p=5047 u=amir n=ansible | ok: [db.test.com] => (item=my_hostname) => {
+    "ansible_loop_var": "item",
+    "item": "my_hostname",
+    "my_hostname": "debian1"
+}
+2024-01-18 15:41:20,059 p=5047 u=amir n=ansible | ok: [db.test.com] => (item=my_distribution) => {
+    "ansible_loop_var": "item",
+    "item": "my_distribution",
+    "my_distribution": "Debian"
+}
+2024-01-18 15:41:20,140 p=5047 u=amir n=ansible | PLAY RECAP *******************************************************************************************************************************************
+2024-01-18 15:41:20,141 p=5047 u=amir n=ansible | db.test.com                : ok=2    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2024-01-18 15:41:20,141 p=5047 u=amir n=ansible | web.test.com               : ok=2    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   

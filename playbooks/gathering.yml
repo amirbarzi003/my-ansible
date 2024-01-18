@@ -1,0 +1,7 @@
+
+- name: data gathering from gather Facts
+  hosts: all
+  roles:
+    - role: gathering
+      tags:
+        - gathering 
