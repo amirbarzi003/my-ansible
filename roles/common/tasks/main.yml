@@ -1,0 +1,41 @@
+---
+
+- name: update & upgrade pkg
+  apt:
+    name: "*"
+    state: latest    
+    update_cache: yes
+
+    
+
+#- name: install apps
+#  apt:
+#    name: "{{ item }}"
+#    state: present
+#  with_items:
+#    - ufw
+#    - firewalld
+
+- name: Tasks done
+  debug:
+    msg:
+      - "Task done (*_*)" 
+
+
+- name: copy a certificate
+  copy:
+    src: usr/local/share/ca-certificates/ManagementCA.pem
+    dest: /usr/local/share/ca-certificates/ManagementCA.pem
+    owner: root
+    group: root
+    mode: 0744
+
+- name: use variable
+  debug:
+    msg: "{{ item }}"
+  loop:
+    - "{{Ip_address}}"
+    - "{{Hostname}}"
+    - "{{Distribution}}"
+
+

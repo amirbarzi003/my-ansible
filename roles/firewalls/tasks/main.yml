@@ -1,0 +1,50 @@
+---
+
+- name: Allow outgoing connections by default
+  ufw:
+    rule: allow
+    direction: out
+
+
+
+- name: Deny incoming connections by default
+  ufw:
+    rule: deny
+    direction: in
+
+
+- name: permit traffic in default zone for ssh, http, and https services
+  firewalld:
+    service: "{{ item }}"
+    permanent: true
+    state: enabled
+  loop:
+    - ssh
+    - http
+    - https
+    - ftp
+
+  notify: restart ufw
+
+
+
+
+
+#- name: Configure UFW rules for ssh, http, and https services
+# ufw:
+#   rule: allow
+#   direction: in
+#  name: "{{ item }}"
+#   state: enabled
+#  loop:
+#    - 22
+#    - 80
+#    - 443
+
+ 
+
+- name: enable ufw
+  ufw:
+    state: enabled
+
+

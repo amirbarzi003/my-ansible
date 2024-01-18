@@ -1,0 +1,16 @@
+---
+
+- hosts: all
+  become: true
+  roles:
+    - role: common
+      tags: 
+        - apt
+        - common-apps
+    
+#    - role: firewalls
+#     tags:
+#     - firewall
+#    - firewalls
+#   - ufw
+ 

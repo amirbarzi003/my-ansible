@@ -1,0 +1,15 @@
+---
+- all:
+    hosts:
+      web.test.com:
+      db.test.com:
+
+- web:
+    hosts:
+      web.test.com:
+
+- db:
+    hosts:
+      db.test.com:
+
+
